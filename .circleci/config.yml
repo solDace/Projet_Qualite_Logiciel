@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/openjdk:18.0
+    steps:
+      - checkout
+      - run:
+          name: Maven clean install
+          command: mvn clean install
+
+workflows:
+  sample:
+    jobs:
+      - build-and-test
